@@ -1,0 +1,58 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="链表的数组表示";
+	
+	rankdir=LR;
+	
+	subgraph cluster0 {
+		label=""
+		color=white;
+		
+		head [shape=plaintext];
+		headRef [shape="square", label=""];
+		{ node [shape=record];
+			d1 [label="{<data> D1 | <ref>}"];
+			d2 [label="{<data> D2 | <ref>}"];
+			d3 [label="{<data> D3 | <ref>}"];
+			d4 [label="{<data> D4 | <ref>}"];
+		}
+		
+		head -> headRef [style=invis];
+	
+		{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false]
+			headRef:c -> d1:data;
+			d1:ref:c -> d2:data;
+			d2:ref:c -> d3:data;
+			d3:ref:c -> d4:data;
+		}
+	}
+	
+	subgraph cluster1 {
+		label="";
+		color=white;
+	
+		{ node [shape=plaintext, fontname="Microsoft Yahei"];
+			t1 [label="索引", style=invis]; 
+			t2 [label="数据"]; 
+			t3 [style=invis];  
+			t4 [label="下一个"]; 
+			t5 [label="索引", style=invis];
+		}
+			
+		{ node [shape=record];
+			c1 [label="0 | 1 | 2 | 3 | 4", color=white];
+			c2 [label="D1 | D3 | D2 | | D4"];
+			c3 [style=invis];
+			c4 [label="2 | 4 | 1 | | -1"];
+			c5 [label="0 | 1 | 2 | 3 | 4", color=white];
+		}
+		
+		t1 -> t2 -> t3 -> t4 -> t5 [style=invis];
+		c1 -> c2 -> c3 -> c4 -> c5 [style=invis];
+	}
+	
+	head -> t1 [lhead=cluster0, ltail=cluster1, style=invis];
+}

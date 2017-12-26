@@ -1,0 +1,102 @@
+graph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="二叉树的不同类型";
+	
+	node [fontname="Microsoft Yahei"];
+	
+	subgraph cluster0 {
+		labelloc="t";
+		label="完全二叉树";
+		color=white;
+	
+		node [shape=circle, style=filled]
+		
+		c0root [label="A"];
+		
+		c0d1n0 [label="B"];
+		c0d1n1 [label="", style=invis];
+		c0d1n2 [label="D"];
+		c0root -- c0d1n0;
+		c0root -- c0d1n1 [style=invis];
+		c0root -- c0d1n2;
+		
+		c0d2n0 [label="E"];
+		// c0d2n1 [label="", style=invis];
+		c0d2n2 [label="C"];
+		c0d1n0 -- c0d2n0;
+		// c0d1n0 -- c0d2n1 [style=invis];
+		c0d1n0 -- c0d2n2;
+		
+		c0d2n3 [label="G", style=invis];
+		// c0d2n4 [label="", style=invis];
+		c0d2n5 [label="C", style=invis];
+		c0d1n2 -- c0d2n3 [style=invis];
+		// c0d1n2 -- c0d2n4 [style=invis];
+		c0d1n2 -- c0d2n5 [style=invis];
+	}
+	
+	subgraph cluster1 {
+		labelloc="t";
+		label="非完全二叉树";
+		color=white;
+	
+		node [shape=circle, style=filled]
+		
+		c1root [label="A"];
+		
+		c1d1n0 [label="B"];
+		c1d1n1 [label="", style=invis];
+		c1d1n2 [label="D"];
+		c1root -- c1d1n0;
+		c1root -- c1d1n1 [style=invis];
+		c1root -- c1d1n2;
+		
+		c1d2n0 [label="E", style=invis];
+		// c1d2n1 [label="", style=invis];
+		c1d2n2 [label="C"];
+		c1d1n0 -- c1d2n0 [style=invis];
+		// c1d1n0 -- c1d2n1 [style=invis];
+		c1d1n0 -- c1d2n2;
+		
+		c1d2n3 [label="G", style=invis];
+		// c1d2n4 [label="", style=invis];
+		c1d2n5 [label="C", style=invis];
+		c1d1n2 -- c1d2n3 [style=invis];
+		// c1d1n2 -- c1d2n4 [style=invis];
+		c1d1n2 -- c1d2n5 [style=invis];
+	}
+	
+	subgraph cluster2 {
+		labelloc="t";
+		label="满二叉树";
+		color=white;
+	
+		node [shape=circle, style=filled]
+		
+		c2root [label="A"];
+		
+		c2d1n0 [label="B"];
+		c2d1n1 [label="", style=invis];
+		c2d1n2 [label="D"];
+		c2root -- c2d1n0;
+		c2root -- c2d1n1 [style=invis];
+		c2root -- c2d1n2;
+		
+		c2d2n0 [label="E"];
+		// c2d2n1 [label="", style=invis];
+		c2d2n2 [label="C"];
+		c2d1n0 -- c2d2n0;
+		// c2d1n0 -- c2d2n1 [style=invis];
+		c2d1n0 -- c2d2n2;
+		
+		c2d2n3 [label="G"];
+		// c2d2n4 [label="", style=invis];
+		c2d2n5 [label="C"];
+		c2d1n2 -- c2d2n3;
+		// c2d1n2 -- c2d2n4 [style=invis];
+		c2d1n2 -- c2d2n5;
+	}
+}

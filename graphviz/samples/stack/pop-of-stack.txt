@@ -1,0 +1,32 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="从链式栈中弹出一个数据项";
+	
+	rankdir=LR;
+	
+	node [fontname="Microsoft Yahei"];
+
+	{ node [shape=plaintext];
+		step [label="将 top 设置为 top.next"];
+		topStr [label="top"];
+	}
+	
+	{ node [shape=record];
+		top [label="", width=.5];	
+		a [label="{<data> a | <next>}"];
+		b [label="{<data> b | <next>}"];
+		c [label="{<data> c | <next>}"];
+	}
+		
+	step -> topStr -> top [style=invis];
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8];
+		top -> a:data [style=invis];
+		top -> b:data [weight=1];
+		a:next:c -> b:data;
+		b:next:c -> c:data;
+	}
+}

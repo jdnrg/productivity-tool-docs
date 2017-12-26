@@ -1,0 +1,54 @@
+graph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="树及其属性";
+	
+	// rankdir=LR;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	subgraph {
+		{ node [shape=plaintext];
+			level0 [label="第0层"];
+			level1 [label="第1层"];
+			level2 [label="第2层"];
+			level3 [label="第3层"];
+			level0 -- level1 -- level2 -- level3 [style=invis];
+		}
+		
+		{ node [shape=circle, style=filled]
+			H -- B;
+			n0 [style=invis];
+			H -- n0 [style=invis];
+			n1 [style=invis];
+			H -- n1 [style=invis];
+			H -- F;
+			
+			B -- A;
+			n2 [style=invis];
+			B -- n2 [style=invis];
+			B -- C;
+			
+			F -- J;
+			n3 [style=invis];
+			F -- n3 [style=invis];
+			F -- E;
+			
+			n4 [style=invis];
+			C -- n4 [style=invis];
+			
+			E -- L;
+			E -- M;
+			E -- N;
+		}
+	}
+	
+	subgraph {
+		propertyTable [shape=record, label="{property | 节点数 | 高度 | 根节点 | 叶节点 | 内部节点 | 第2层节点 | 节点E的祖先节点 | 节点F的子孙节点 | 节点F的右子树中的节点} | {value | 10 | 3 | H | A, C, J, L, M, N | H, B, F, E | A, C, J, E | F, H | J, E, L, M, N | E, L, M, N}"];
+	}
+	
+	lastRow [style=invis];
+	n4 -- propertyTable -- lastRow [style=invis];
+}

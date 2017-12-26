@@ -1,0 +1,152 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="对合并排序中产生的子数组执行合并";
+	
+	compound=true;
+	newrank=true;
+	nodesep=.1;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext];
+		阶段1 -> 阶段2 -> 阶段3 -> 阶段4 [style=invis];
+	}
+	
+	subgraph cluster0 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			a0 [label="1"]; 
+			a1 [label="2"]; 
+			a2 [label="3"]; 
+			a3 [label="4"]; 
+			a4 [label="5"]; 
+			a5 [label="6"];
+			a6 [label="7"]; 
+			a7 [label="8"];
+		}
+		a0 -> a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> a7 [style=invis];
+	}
+	
+	subgraph cluster1 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			b0 [label="1"]; 
+			b1 [label="4"]; 
+			b2 [label="6"]; 
+			b3 [label="7"];
+		}
+		b0 -> b1 -> b2 -> b3 [style=invis];
+	}
+	
+	subgraph cluster2 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			b4 [label="2"]; 
+			b5 [label="3"]; 
+			b6 [label="5"]; 
+			b7 [label="8"];
+		}
+		b4 -> b5 -> b6 -> b7 [style=invis];
+	}
+	
+	subgraph cluster3 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			c0 [label="1"]; 
+			c1 [label="4"];
+		}
+		c0 -> c1 [style=invis];
+	}
+	
+	subgraph cluster4 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			c2 [label="6"]; 
+			c3 [label="7"];
+		}
+		c2 -> c3 [style=invis];
+	}
+	
+	subgraph cluster5 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			c4 [label="3"]; 
+			c5 [label="5"];
+		}
+		c4 -> c5 [style=invis];
+	}
+	
+	subgraph cluster6 {
+		label="";
+		{ rank=same;
+			node [shape=square];
+			c6 [label="2"]; 
+			c7 [label="8"];
+		}
+		c6 -> c7 [style=invis];
+	}
+	
+	{ node [shape=square];
+		d0 [label="4"];
+		d1 [label="1"];
+		d2 [label="7"];
+		d3 [label="6"];
+		d4 [label="5"];
+		d5 [label="3"];
+		d6 [label="8"];
+		d7 [label="2"];
+	}
+	
+	a3 -> b3 [ltail=cluster0, lhead=cluster1, dir=back];
+	a4 -> b4 [ltail=cluster0, lhead=cluster2, dir=back];
+	{ node [shape=square, style=invis];
+		edge [style=invis];
+		a3 -> b10;
+		a4 -> b11;
+	}
+	{ rank=same;
+		b10 -> b11 [style=invis];
+	}
+	
+	b1 -> c1 [ltail=cluster1, lhead=cluster3, dir=back];
+	b2 -> c2 [ltail=cluster1, lhead=cluster4, dir=back];
+	{ node [shape=square, style=invis];
+		edge [style=invis];
+		b1 -> c10;
+		b2 -> c10;
+	}
+	
+	b5 -> c5 [ltail=cluster2, lhead=cluster5, dir=back];
+	b6 -> c6 [ltail=cluster2, lhead=cluster6, dir=back];
+	{ node [shape=square, style=invis];
+		edge [style=invis];
+		b5 -> c11;
+		b6 -> c11;
+	}
+	
+	c0 -> d0 [ltail=cluster3, dir=back];
+	c1 -> d1 [ltail=cluster3, dir=back];
+	c2 -> d2 [ltail=cluster4, dir=back];
+	c3 -> d3 [ltail=cluster4, dir=back];
+	c4 -> d4 [ltail=cluster5, dir=back];
+	c5 -> d5 [ltail=cluster5, dir=back];	
+	c6 -> d6 [ltail=cluster6, dir=back];
+	c7 -> d7 [ltail=cluster6, dir=back];
+	{ rank=same;
+		node [shape=square, style=invis];
+		edge [style=invis];
+		d0 -> d10 -> d1;
+		d2 -> d11 -> d3;
+		d4 -> d12 -> d5;
+		d6 -> d13 -> d7;
+	}
+}

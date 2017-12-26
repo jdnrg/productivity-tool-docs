@@ -1,0 +1,46 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="含有4个数据项的链表队列";
+	
+	rankdir=LR;
+	ranksep=0;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext]; 
+		frontStr [label="front"];
+		rearStr [label="rear"];
+	}
+	
+	{ node [shape="record"];
+		front [label="", width=.5];
+		rear [label="", width=.5];
+		d1 [label="{<data> D1 | <next>}"];
+		d2 [label="{<data> D2 | <next>}"];
+		d3 [label="{<data> D3 | <next>}"];
+		d4 [label="{<data> D4 | <next>}"];
+	}
+	
+	frontStr -> front [style=invis];
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8, minlen=2];
+		front:c -> d1:data;
+		d1:next:c -> d2:data;
+		d2:next:c -> d3:data;
+		d3:next:c -> d4:data;
+		
+		rear:c -> d4:data [weight=1];
+	}
+	
+
+	{ rank=same;
+		frontStr -> rearStr [style=invis];
+	}
+	
+	{ rank=same;
+		front -> rear [style=invis];
+	}
+}

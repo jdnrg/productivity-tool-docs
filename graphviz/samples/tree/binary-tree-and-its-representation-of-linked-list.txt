@@ -1,0 +1,29 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="二叉树及其链表表示";
+	
+	{ node [shape=plaintext];
+		edge [arrowhead=none];
+		a -> b;
+		a -> d;
+		b -> "" [style=invis];
+		b -> c;
+	}
+	
+	{ node [shape=record, width=1, style=filled];
+		n1 [label="{a | {<left> | <right>}}"];
+		n2 [label="{b | {<left> ● | <right>}}"];
+		n3 [label="{d | {<left> ● | <right> ●}}"];
+		n4 [style=invis];
+		n5 [label="{c | {<left> ● | <right> ●}}"];
+		
+		edge [tailclip=false];
+		n1:left:c -> n2;
+		n1:right:c -> n3;
+		n2:left:c -> n4 [style=invis];
+		n2:right:c -> n5;
+	}
+}

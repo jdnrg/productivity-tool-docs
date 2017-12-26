@@ -1,0 +1,20 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="插入第一个节点后的循环链表";
+
+	rankdir=LR;
+	
+	head [shape=plaintext];
+	headRef [shape=square, label=""];
+	headNode [shape=record, label="{<data> | <ref>}"];
+	d1 [shape=record, label="{<data> D1 | <ref>}"];
+
+	head -> headRef [style=invis];
+	edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+	headRef:c -> headNode:data;
+	headNode:ref:c -> d1:data;
+	d1:ref:c -> headNode:data;
+}

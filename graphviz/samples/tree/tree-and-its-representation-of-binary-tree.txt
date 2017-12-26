@@ -1,0 +1,49 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="用二叉树表示普通树";
+	
+	{ node [shape=plaintext];
+		edge [arrowhead=none];
+		a -> b;
+		a -> c;
+		a -> d;
+		a -> e;
+		b -> f;
+		b -> g;
+		c -> h;
+	}
+	
+	{ node [shape=record, width=1, style=filled];
+		A [label="{a | {<left> | <right> ●}}"];
+		B [label="{b | {<left> | <right>}}"];
+		C [label="{c | {<left> | <right>}}"];
+		D [label="{d | {<left> ● | <right>}}"];
+		E [label="{e | {<left> ● | <right> ●}}"];
+		F [label="{f | {<left> ● | <right>}}"];
+		G [label="{g | {<left> ● | <right> ●}}"];
+		H [label="{h | {<left> ● | <right> ●}}"];
+		
+		edge [tailclip=false];
+		A:left:c -> B;
+		b1 [style=invis];
+		A:right:c -> b1 [style=invis];
+		B:left:c -> F;
+		B:right:c -> C;
+		b2 [style=invis];
+		F:left:c -> b2 [style=invis];
+		F:right:c -> G;
+		C:left:c -> H;
+		C:right:c -> D;
+		b3 [style=invis];
+		D:left:c -> b3 [style=invis];
+		D:right:c -> E;
+		
+		{ rank=same;
+			b4 [style=invis];
+			F -> b4 -> C [style=invis];
+		}
+	}
+}

@@ -1,0 +1,116 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+
+	rankdir=LR;
+	
+	// title
+	labelloc="b";
+	label="在链表的尾端插入数据项";
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext];
+		r0 [label="probe.next!=null"];
+		r1 [label="（probe 指向 probe.next）"];
+		r2 [label=""];		
+		head0 [label="head"];
+		probe0 [label="probe"];
+		
+		r3 [label="probe.next!=null"];
+		r4 [label="（probe 指向 probe.next）"];
+		r5 [label=""];
+		head1 [label="head"];
+		probe1 [label="probe"];
+		
+		r6 [label="probe.next==null"];
+		r7 [label="（停止循环）"];
+		r8 [label=""];
+		head2 [label="head"];
+		probe2 [label="probe"];
+		
+		r9 [label="probe.next=newNode"];
+		r10 [label="（链接新节点）"];
+		lastRow [label=""];
+		head3 [label="head"];
+		probe3 [label="probe"];
+	}
+	
+	{ node [shape=square];
+		headRef0 [label=""];
+		probeRef0 [label=""];
+		headRef1 [label=""];
+		probeRef1 [label=""];
+		headRef2 [label=""];
+		probeRef2 [label=""];
+		headRef3 [label=""];
+		probeRef3 [label=""];
+	}
+	
+	{ node [shape=record];
+		s0d1 [label="{<data> D1 | <ref>}"];
+		s0d2 [label="{<data> D2 | <ref>}"];
+		s0d3 [label="{<data> D3 | <ref>}"];
+		
+		s1d1 [label="{<data> D1 | <ref>}"];
+		s1d2 [label="{<data> D2 | <ref>}"];
+		s1d3 [label="{<data> D3 | <ref>}"];
+		
+		s2d1 [label="{<data> D1 | <ref>}"];
+		s2d2 [label="{<data> D2 | <ref>}"];
+		s2d3 [label="{<data> D3 | <ref>}"];
+		
+		s3d0 [label="{<data> D1 | <ref>}"];
+		s3d1 [label="{<data> D2 | <ref>}"];
+		s3d2 [label="{<data> D3 | <ref>}"];
+		s3d3 [label="{<data> D4 | <ref>}"];
+	}
+
+	{ rank=same;
+		r0 -> r1 -> r2 -> r3 -> r4 -> r5 -> r6 -> r7 -> r8 -> r9 -> r10 -> lastRow [style=invis];
+	}
+	
+	{ rank=same;
+		head0 -> probe0 -> head1 -> probe1 -> head2 -> probe2 -> head3 -> probe3 [style=invis];
+	}
+	
+	{ rank=same;
+		headRef0 -> probeRef0 -> headRef1 -> probeRef1 -> headRef2 -> probeRef2 -> headRef3 -> probeRef3 [style=invis];
+	}
+	
+	{ edge [style=invis];
+		r0 -> head0 -> headRef0 [weight=8];
+		probe0 -> probeRef0;
+		r3 -> head1 -> headRef1 [weight=8];
+		probe1 -> probeRef1;
+		r6 -> head2 -> headRef2 [weight=8];
+		probe2 -> probeRef2;
+		r9 -> head3 -> headRef3 [weight=8];
+		probe3 -> probeRef3;
+	}
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8];
+		headRef0:c -> s0d1:data;
+		s0d1:ref:c -> s0d2:data;
+		s0d2:ref:c -> s0d3:data;
+		
+		headRef1:c -> s1d1:data;
+		s1d1:ref:c -> s1d2:data;
+		s1d2:ref:c -> s1d3:data;
+		
+		headRef2:c -> s2d1:data;
+		s2d1:ref:c -> s2d2:data;
+		s2d2:ref:c -> s2d3:data;
+		
+		headRef3:c -> s3d0:data;
+		s3d0:ref:c -> s3d1:data;
+		s3d1:ref:c -> s3d2:data;
+		s3d2:ref:c -> s3d3:data;
+	}
+	
+	{ edge [arrowhead=vee];
+		probeRef0 -> s0d1:data;
+		probeRef1 -> s1d2:data;
+		probeRef2 -> s2d3:data;
+		probeRef3 -> s3d2:data;
+	}
+}

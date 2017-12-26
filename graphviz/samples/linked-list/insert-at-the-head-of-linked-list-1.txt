@@ -1,0 +1,35 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+
+	rankdir=LR;
+	
+	// title
+	labelloc="t";
+	label="第一种情况：head 指针为空";
+	
+	node [fontname="Microsoft Yahei"];
+	
+	firstRow [style=invis];
+	
+	r0 [shape=plaintext, label="head 的初始状态"];
+	head0 [shape=plaintext, label="head"];
+	headRef0 [shape=square, label=""];
+	
+	r1 [shape=plaintext, label="head=new Node(newItem, head);"];
+	head1 [shape=plaintext, label="head"];
+	headRef1 [shape=square, label=""];
+	d [shape=record, label="{<data> D | <ref>}"];
+	
+	{ rank=same;
+		firstRow -> r0 -> r1 [style=invis];
+	}
+	
+	{ edge [style=invis];
+		r0 -> head0 -> headRef0;
+		r1 -> head1 -> headRef1;
+	}
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+		headRef1 -> d:data;
+	}
+}

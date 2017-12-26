@@ -1,0 +1,33 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="含有4个数据项的栈的数组表示";
+	
+	node [fontname="Microsoft Yahei"];
+	
+	rankdir=LR;
+
+	{ node [shape=plaintext];
+		stackStr [label="stack"];
+		indexStr [label=""];
+		topStr [label="top"];
+		lastRow [label=""];
+	}
+	
+	{ node [shape=record, fixedsize=true];
+		stack [label="{<f0> a | <f1> b | <f2> c | <f3> d | <f4> | <f5> | <f6> ... | <f7> | <f8>}", width=9];
+		index [label="{<f0> 0 | <f1> 1 | <f2> 2 | <f3> 3 | <f4> 4 | <f5> 5 | <f6> | <f7> n-2 | <f8> n-1}", width=9];
+		top [label="3", width=0.5];
+	}
+	
+	{ rank=same;
+		stackStr -> indexStr -> topStr -> lastRow [style=invis];
+	}
+	
+	edge [style=invis];
+	stackStr -> stack;
+	indexStr -> index;
+	topStr -> top;
+}

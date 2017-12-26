@@ -1,0 +1,21 @@
+@startuml
+object PFEvaluatorInterface
+object PFEvaluatorModel
+object PFEvaluator
+object "Token" as token1
+object Stack
+object Scanner
+object String
+object "Token" as token2
+
+PFEvaluatorInterface -- PFEvaluatorModel : 显示
+PFEvaluatorModel -- PFEvaluator : 使用
+PFEvaluatorModel -- Scanner : 迭代
+PFEvaluator - Scanner : 迭代
+
+PFEvaluator -- token1 : 处理
+PFEvaluator -- Stack : 存储操作数
+
+Scanner -- String : 扫描
+Scanner -- token2 : 生成
+@enduml

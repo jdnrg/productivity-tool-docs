@@ -1,0 +1,101 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="在双向链表的尾端插入一项";
+	
+	node [fontname="Microsoft Yahei"];
+
+	rankdir=LR;
+
+	{ node [shape=plaintext, label=""]; 
+		r0 [label="插入前链表的状态"];
+		r1;
+		r2 [label="tail.next=new TwoWayNode(str, tail, null);"];
+		r3;
+		r4 [label="tail=tail.next;"];
+		r5;
+		lastRow;
+
+		head0 [label="head"];
+		tail0 [label="tail"];
+		head1 [label="head"];
+		tail1 [label="tail"];
+		head2 [label="head"];
+		tail2 [label="tail"];
+	}
+	
+	{ node [shape=square];
+		headRef0 [label=""];
+		tailRef0 [label=""];
+		headRef1 [label=""];
+		tailRef1 [label=""];
+		headRef2 [label=""];
+		tailRef2 [label=""];
+	}
+	
+	{ node [shape=record];
+		s0d1 [label="{<previous> | <data> D1 | <next>}"];
+		s0d2 [label="{<previous> | <data> D2 | <next>}"];
+		s0d3 [label="{<previous> | <data> D3 | <next>}"];
+		
+		s1d1 [label="{<previous> | <data> D1 | <next>}"];
+		s1d2 [label="{<previous> | <data> D2 | <next>}"];
+		s1d3 [label="{<previous> | <data> D3 | <next>}"];
+		s1d4 [label="{<previous> | <data> D4 | <next>}"];		
+		
+		s2d1 [label="{<previous> | <data> D1 | <next>}"];
+		s2d2 [label="{<previous> | <data> D2 | <next>}"];
+		s2d3 [label="{<previous> | <data> D3 | <next>}"];
+		s2d4 [label="{<previous> | <data> D4 | <next>}"];
+	}
+	
+	{ rank=same;
+		r0 -> r1 -> r2 -> r3 -> r4 -> r5 -> lastRow [style=invis];
+	}	
+	
+	{ rank=same;
+		head0 -> tail0 -> head1 -> tail1 -> head2 -> tail2 [style=invis];
+	}
+	
+	{ rank=same;
+		headRef0 -> tailRef0 -> headRef1 -> tailRef1 -> headRef2 -> tailRef2 [style=invis];
+	}
+	
+	{ edge [style=invis, weight=8];
+		r0 -> head0 -> headRef0;
+		r1 -> tail0 -> tailRef0;
+		r2 -> head1 -> headRef1;
+		r3 -> tail1 -> tailRef1;
+		r4 -> head2 -> headRef2;
+		r5 -> tail2 -> tailRef2;
+	}
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+		headRef0:c -> s0d1:previous;
+		s0d1:next:c -> s0d2:previous;
+		s0d2:previous:c -> s0d1:next;
+		s0d2:next:c -> s0d3:previous;
+		s0d3:previous:c -> s0d2:next;
+		tailRef0:c -> s0d3:data;
+		
+		headRef1:c -> s1d1:previous;
+		s1d1:next:c -> s1d2:previous;
+		s1d2:previous:c -> s1d1:next;
+		s1d2:next:c -> s1d3:previous;
+		s1d3:previous:c -> s1d2:next;
+		s1d3:next:c -> s1d4:previous;
+		s1d4:previous:c -> s1d3:next;
+		tailRef1 -> s1d3:data;
+		
+		headRef2:c -> s2d1:previous;
+		s2d1:next:c -> s2d2:previous;
+		s2d2:previous:c -> s2d1:next;
+		s2d2:next:c -> s2d3:previous;
+		s2d3:previous:c -> s2d2:next;
+		s2d3:next:c -> s2d4:previous;
+		s2d4:previous:c -> s2d3:next;
+		tailRef2 -> s2d4:data;
+	}
+}

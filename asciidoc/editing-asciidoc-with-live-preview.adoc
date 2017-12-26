@@ -1,0 +1,26 @@
+= 使用实时预览来编辑 AsciiDoc
+Doc Writer <tequlia2pop@gmail.com>
+:toc: left
+:homepage: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
+
+== 使用网络浏览器（仅限预览）
+
+想要在网络浏览器中预览 AsciiDoc 文档，需要安装 https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[Chrome 扩展程序]、 https://addons.mozilla.org/en/firefox/addon/asciidoctorjs-live-preview[Firefox 附加组件] 或 https://addons.opera.com/fr/extensions/details/asciidoctorjs-live-preview[Opera 扩展程序]。这样你可以在访问 AsciiDoc 文件时发现它已经渲染为 HTML 了！
+
+=== Chrome
+
+在 Chrom 网上应用店中直接搜索 "Asciidoctor.js Live Preview" 扩展程序，并下载安装即可。
+
+== 使用现代的文本编辑器/IDE
+
+以下编辑器/IDE 支持语法高亮和预览渲染（按字母顺序排列）：
+
+=== Brackets
+
+安装 http://brackets.io/[Brackets]，然后从 Brackets file 菜单中打开 extension manager。浏览可用的扩展并安装 `AsciiDoc Preview`。
+    +
+    参考 link:../brackets/brackets-asciidoc-preview/asciiDoc-live-preview-for-adobe-brackets.adoc[Adobe Brackets 的 AsciiDoc 实时预览]。
+
+更多信息::
+
+    * https://github.com/asciidoctor/brackets-asciidoc-preview[AsciiDoc Preview for Brackets]

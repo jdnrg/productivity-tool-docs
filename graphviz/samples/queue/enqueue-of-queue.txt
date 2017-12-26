@@ -1,0 +1,159 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="向链表队列中添加一个数据项";
+	
+	size="7.5,7.5";
+	rankdir=LR;
+	ranksep=0;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	// 步骤1：新增一个节点
+	subgraph {
+		{ node [shape=plaintext];
+			step1 [label="步骤1：\n新增一个节点"];
+			frontStr0 [label="front"];
+			rearStr0 [label="rear"];
+			newNodeStr0 [label="newNode"];
+		}
+		
+		{ node [shape=record];
+			front0 [label="", width=.5];
+			rear0 [label="", width=.5];
+			newNode0 [label="", width=.5];
+			s0d1 [label="{<data> D1 | <next>}"];
+			s0d2 [label="{<data> D2 | <next>}"];
+			s0d3 [label="{<data> D3 | <next>}"];
+			s0d4 [label="{<data> D4 | <next>}"];
+			s0d5 [label="{<data> D5 | <next>}"];
+		}
+		
+		step1 -> frontStr0 [style=invis];
+		
+		{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8, minlen=4];			
+			frontStr0 -> front0 [style=invis, minlen=1];
+			front0:c -> s0d1:data;	
+			s0d1:next:c -> s0d2:data;
+			s0d2:next:c -> s0d3:data;
+			s0d3:next:c -> s0d4:data;
+			s0d4 -> s0d5 [style=invis];
+			
+			rearStr0 -> rear0 [style=invis, minlen=1];
+			rear0:c -> s0d4:data [weight=1];
+			
+			 newNode0 -> newNodeStr0 [style=invis, minlen=1];
+		}
+		
+		{ rank=same;
+			frontStr0 -> rearStr0 [style=invis];
+		}
+		
+		{ rank=same;
+			s0d5 -> newNode0 [arrowhead=dot, arrowtail=vee, dir=both, headclip=false];
+		}
+	}
+	
+	// 步骤2：设置 rear.next 指向该新节点
+	subgraph {
+		{ node [shape=plaintext];
+			step2 [label="步骤2：\n设置 rear.next 指向该新节点"];
+			frontStr1 [label="front"];
+			rearStr1 [label="rear"];
+			newNodeStr1 [label="newNode"];
+		}
+		
+		{ node [shape=record];
+			front1 [label="", width=.5];
+			rear1 [label="", width=.5];
+			newNode1 [label="", width=.5];
+			s1d1 [label="{<data> D1 | <next>}"];
+			s1d2 [label="{<data> D2 | <next>}"];
+			s1d3 [label="{<data> D3 | <next>}"];
+			s1d4 [label="{<data> D4 | <next>}"];
+			s1d5 [label="{<data> D5 | <next>}"];
+		}
+		
+		step2 -> frontStr1 [style=invis];
+		
+		{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8, minlen=4];
+			frontStr1 -> front1 [style=invis, minlen=1];
+			front1:c -> s1d1:data;	
+			s1d1:next:c -> s1d2:data;
+			s1d2:next:c -> s1d3:data;
+			s1d3:next:c -> s1d4:data;
+			s1d4:next:c -> s1d5:data;
+			
+			rearStr1 -> rear1 [style=invis, minlen=1];
+			rear1:c -> s1d4:data [weight=1];
+			
+			newNode1 -> newNodeStr1 [style=invis, minlen=1];
+		}
+		
+		{ rank=same;
+			frontStr1 -> rearStr1 [style=invis];
+		}
+		
+		{ rank=same;
+			s1d5 -> newNode1 [arrowhead=dot, arrowtail=vee, dir=both, headclip=false];
+		}
+	}
+	
+	// 步骤3：设置 rear 指向该新节点
+	subgraph {
+		{ node [shape=plaintext];
+			step3 [label="步骤3：\n设置 rear 指向该新节点"];
+			frontStr2 [label="front"];
+			rearStr2 [label="rear"];
+			newNodeStr2 [label="newNode"];
+		}
+		
+		{ node [shape=record];
+			front2 [label="", width=.5];
+			rear2 [label="", width=.5];
+			newNode2 [label="", width=.5];
+			s2d1 [label="{<data> D1 | <next>}"];
+			s2d2 [label="{<data> D2 | <next>}"];
+			s2d3 [label="{<data> D3 | <next>}"];
+			s2d4 [label="{<data> D4 | <next>}"];
+			s2d5 [label="{<data> D5 | <next>}"];
+		}
+		
+		step3 -> frontStr2 [style=invis];
+		
+		{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8, minlen=4];
+			frontStr2 -> front2 [style=invis, minlen=1];
+			front2:c -> s2d1:data;	
+			s2d1:next:c -> s2d2:data;
+			s2d2:next:c -> s2d3:data;
+			s2d3:next:c -> s2d4:data;
+			s2d4:next:c -> s2d5:data;
+			
+			rearStr2 -> rear2 [style=invis, minlen=1];
+			rear2:c -> s2d5:data [weight=1];
+			
+			newNode2 -> newNodeStr2 [style=invis, minlen=1];
+		}
+		
+		{ rank=same;
+			frontStr2 -> rearStr2 [style=invis];
+		}
+		
+		{ rank=same;
+			s2d5 -> newNode2 [arrowhead=dot, arrowtail=vee, dir=both, headclip=false];
+		}
+	}
+	
+	{ rank=same;
+		{ node [shape=none, label=""];
+			seperateRow0; seperateRow1; lastRow;
+		}
+		{ edge [style=invis];
+			rearStr0 -> seperateRow0 -> frontStr1;
+			rearStr1 -> seperateRow1 -> frontStr2;
+			rearStr2 -> lastRow;
+		}
+	}
+}

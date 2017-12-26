@@ -1,0 +1,33 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="具有4个优先级的链式优先队列";
+	
+	ranksep=0;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ rank=same;
+		node [shape=box];
+		pq1 [label="优先队列1"];
+		pq2 [label="优先队列2"];
+		pq3 [label="优先队列3"];
+		pq4 [label="优先队列4"];
+	}
+	
+	{ node [shape="record", width="1.75"];
+		array [label="<f0> | <f1> | <f2> | <f3>"];
+		arrayIndex [label="0 | 1 | 2 | 3", color=white];
+	}
+	
+	{ edge [dir=back, minlen=3];
+		pq1 -> array:f0;
+		pq2 -> array:f1;
+		pq3 -> array:f2;
+		pq4 -> array:f3;
+	}
+	
+	array -> arrayIndex [style=invis];
+}

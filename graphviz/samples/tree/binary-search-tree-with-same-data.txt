@@ -1,0 +1,88 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="3棵具有相同数据的二叉树";
+	
+	size="7.5,7.5";
+	
+	subgraph cluster0 { 
+		label="";
+		color=white;
+		node [shape=box, style=filled];
+		a1 [label="1"];
+		a2 [label="2"];
+		a3 [label="3"];
+		a4 [label="4"];
+		a7 [label="7"];
+		
+		a4 -> a2;
+		n0 [style=invis];
+		a4 -> n0 [style=invis];
+		a4 -> a7;
+		a2 -> a1;
+		a2 -> a3;
+		n1 [style=invis];
+		n2 [style=invis];
+		a7 -> n1 [style=invis];
+		a7 -> n2 [style=invis];
+		
+		{ rank=same;
+			a2 -> n0 -> a7 [style=invis];
+		}
+	}
+	
+	subgraph cluster1 {
+		label="";
+		color=white;
+		node [shape=box, style=filled];
+		b1 [label="1"];
+		b2 [label="2"];
+		b3 [label="3"];
+		b4 [label="4"];
+		b7 [label="7"];
+		
+		b4 -> b3;
+		b4 -> b7;
+		b3 -> b2;
+		p0 [style=invis];
+		b3 -> p0 [style=invis];
+		p1 [style=invis];
+		b7 -> p1 [style=invis];
+		b2 -> b1;
+		p2 [style=invis];
+		b2 -> p2 [style=invis];
+		p3 [style=invis];
+		p0 -> p3 [style=invis];
+		p4 [style=invis];
+		p1 -> p4 [style=invis];
+	}
+	
+	subgraph cluster2 {
+		label="";
+		color=white;
+		node [shape=box, style=filled];
+		c1 [label="1"];
+		c2 [label="2"];
+		c3 [label="3"];
+		c4 [label="4"];
+		c7 [label="7"];
+		
+		{ node [style=invis];
+			q0; q1; q2; q3; q4; q5; q6; q7; q8; q9;
+		}
+		
+		c7 -> c4 -> c3 -> c2 -> c1;
+		c7 -> q0 [style=invis];
+		c4 -> q1 [style=invis];
+		q0 -> q2 [style=invis];
+		c3 -> q3 [style=invis];
+		q1 -> q4 [style=invis];
+		q2 -> q5 [style=invis];
+		c2 -> q6 [style=invis];
+		q3 -> q7 [style=invis];
+		q4 -> q8 [style=invis];
+		q5 -> q9 [style=invis];
+	}
+}

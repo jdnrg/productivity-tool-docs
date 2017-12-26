@@ -1,0 +1,126 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="使用二分查找法在数组中查找特定的数据项";
+	
+	// 允许在集群之间使用边
+	compound=true;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext];
+		edge [style=invis];
+		比较 -> 1;
+		1 -> 2 -> 3 -> 4 [minlen=2];
+		lastRow [style=invis];
+		4 -> lastRow;
+	}
+	
+	subgraph cluster0 {
+		label="";
+		{rank=same;
+			node [shape=box];
+			a0 [label="1"]; 
+			a1 [label="2"]; 
+			a2 [label="3"]; 
+			a3 [label="4"]; 
+			a4 [label="5", style=filled]; 
+			a5 [label="6"]; 
+			a6 [label="7"]; 
+			a7 [label="8"]; 
+			a8 [label="9"];
+		}
+		a0 -> a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> a7 -> a8 [style=invis];
+	}
+	
+	subgraph cluster1 {
+		label="";
+		{ rank=same;
+			node [shape=box];
+			b0 [label="1"]; 
+			b1 [label="2"]; 
+			b2 [label="3"]; 
+			b3 [label="4"];
+		}
+		b0 -> b1 -> b2 -> b3 [style=invis];
+	}
+	
+	b4 [style=invis];
+		
+	subgraph cluster2 {
+		label="";
+		{ rank=same;
+			node [shape=box];
+			b5 [label="6"]; 
+			b6 [label="7", style=filled]; 
+			b7 [label="8"]; 
+			b8 [label="9"];
+		}
+		b5 -> b6 -> b7 -> b8 [style=invis];
+	}
+	
+	c0 [shape=box, label="1"];
+	c1 [style=invis];
+	
+	subgraph cluster3 {
+		label="";
+		{ rank=same;
+			node [shape=box];
+			c2 [label="3"]; 
+			c3 [label="4"];
+		}
+		c2 -> c3 [style=invis];
+	}
+	
+	c4 [style=invis];
+	c5 [shape=box, label="6"];
+	c6 [style=invis];
+	
+	subgraph cluster4 {
+		label="";
+		{ rank=same;
+			node [shape=box];
+			c7 [label="8", style=filled]; 
+			c8 [label="9"];
+		}
+		c7 -> c8 [style=invis];
+	}
+	
+	d0 [style=invis];
+	d1 [style=invis];
+	d2 [style=invis];
+	d3 [shape=box, label="4"];
+	d4 [style=invis];
+	d5 [style=invis];
+	d6 [style=invis];
+	d7 [style=invis];
+	d8 [shape=box, label="9", style=filled];
+	
+	firstRow [style=invis];
+	firstRow -> a0 [style=invis];
+	
+	{ edge [minlen=2, weight=8, style=invis];
+		a0 -> b0 -> c0 -> d0;
+		a1 -> b1 -> c1 -> d1;
+		a2 -> b2 -> c2 -> d2;
+		a3 -> b3 -> c3 -> d3;
+		a4 -> b4 -> c4 -> d4;
+		a5 -> b5 -> c5 -> d5;
+		a6 -> b6 -> c6 -> d6;
+		a7 -> b7 -> c7 -> d7;
+		a8 -> b8 -> c8 -> d8;
+	}
+
+	{ edge [minlen=2];
+		a4 -> b2 [ltail=cluster0, lhead=cluster1];	
+		a4 -> b6 [ltail=cluster0, lhead=cluster2];
+		b1 -> c0 [ltail=cluster1];
+		b1 -> c2 [ltail=cluster1, lhead=cluster3];
+		b6 -> c5 [ltail=cluster2];
+		b6 -> c7 [ltail=cluster2, lhead=cluster4];
+		c2 -> d3 [ltail=cluster3];
+		c7 -> d8 [ltail=cluster4];
+	}
+}

@@ -1,0 +1,37 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="二叉搜索树";
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext]; 
+		level0 [label="0"];
+		level1 [label="1"];
+		level2 [label="2"];
+		level3 [label="3"];
+		
+		edge [style=invis];
+		调用层次 -> level0;
+		level0 -> level1 -> level2 -> level3;
+	}
+	
+	{ node [shape=box, style=filled];
+		4 -> 2;
+		n0 [style=invis];
+		4 -> n0 [style=invis];
+		4 -> 7;
+		2 -> 1;
+		2 -> 3;
+		7 -> 5;
+		7 -> 8;
+		n1 [style=invis];
+		8 -> n1 [style=invis];
+		8 -> 9;
+	}
+	
+	firstRow [style=invis];
+	firstRow -> 4 [style=invis];
+}

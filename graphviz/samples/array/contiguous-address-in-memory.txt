@@ -1,0 +1,21 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="地址连续的内存块";
+	
+	node [shape=plaintext, fontname="Microsoft Yahei"];
+	机器地址; 存储数组的地址连续的内存块; 数组索引;
+	
+	node [shape=record];
+	machineAddr [label="{10011101 | 10011110 | 10011111 | 10100000 | 10100001}", color=white];
+	memoryBlock [label="{  |  |  |  | }"];
+	arrayIndices [label="{0 | 1 | 2 | 3 | 4}", color=white]
+	
+	lastRow [style=invis];
+	
+	机器地址 -> machineAddr -> lastRow [style=invis];
+	存储数组的地址连续的内存块 -> memoryBlock;
+	数组索引 -> arrayIndices [style=invis];
+}

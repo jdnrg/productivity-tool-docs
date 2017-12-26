@@ -1,0 +1,97 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b0";
+	label="向链式栈中增加一个数据项";
+	
+	rankdir=LR;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext];
+		step1 [label="步骤1：\n新增一个节点"];
+		topStr0 [label="top"];
+		newNodeStr0 [label="newNode"];
+		
+		step2 [label="步骤2：\n将 newNode.next 设为 top"];
+		topStr1 [label="top"];
+		newNodeStr1 [label="newNode"];
+		
+		step3 [label="步骤3：\n将top设为新节点"];
+		topStr2 [label="top"];
+		newNodeStr2 [label="newNode"];
+		
+		lastRow [label=""];
+	}
+	
+	{ node [shape=record];
+		top0 [label="", width=.5];
+		a0 [label="{<data> a | <next>}"];
+		b0 [label="{<data> b | <next>}"];
+		c0 [label="{<data> c | <next>}"];
+		newNode0 [label="", width=.5];
+		d0 [label="{<data> d | <next>}"];
+		
+		top1 [label="", width=.5];
+		a1 [label="{<data> a | <next>}"];
+		b1 [label="{<data> b | <next>}"];
+		c1 [label="{<data> c | <next>}"];
+		newNode1 [label="", width=.5];
+		d1 [label="{<data> d | <next>}"];
+		
+		top2 [label="", width=.5];
+		a2 [label="{<data> a | <next>}"];
+		b2 [label="{<data> b | <next>}"];
+		c2 [label="{<data> c | <next>}"];
+		newNode2 [label="", width=.5];
+		d2 [label="{<data> d | <next>}"];
+	}
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, weight=8];
+		top0:c -> a0:data;
+		a0:next:c -> b0:data;
+		b0:next:c -> c0:data;
+		newNode0:c -> d0:data;
+		
+		top1:c -> a1:data;
+		a1:next:c -> b1:data;
+		b1:next:c -> c1:data;
+		newNode1:c -> d1:data;
+		// edge 声明必须位于最前，否则下面代码生成的箭头会变形
+		d1:next:c -> a1:data [weight=1];
+		
+		top2:c -> a2:data [style=invis];
+		top2:c -> d2:data;
+		a2:next:c -> b2:data;
+		b2:next:c -> c2:data;
+		newNode2:c -> d2:data;
+		// edge 声明必须位于最前，否则下面代码生成的箭头会变形
+		d2:next:c -> a2:data [weight=1];
+	}
+	
+	{ edge [style=invis, weight=8];
+		step1 -> topStr0 -> top0;
+		newNodeStr0 -> newNode0;
+		step2 -> topStr1 -> top1;
+		newNodeStr1 -> newNode1;
+		step3 -> topStr2 -> top2;
+		newNodeStr2 -> newNode2;
+	}
+	
+	{ rank=same;
+		step1 -> step2 -> step3 [style=invis];
+	}
+	
+	{ rank=same;
+		topStr0 -> newNodeStr0 -> topStr1 -> newNodeStr1 -> topStr2 -> newNodeStr2 -> lastRow [style=invis];
+	}
+	
+	{ rank=same;
+		top0 -> newNode0 -> top1 -> newNode1 -> top2 -> newNode2 [style=invis];
+	}
+	
+	{ rank=same;
+		a0 -> d0 -> a1 -> d1 -> a2 -> d2 [style=invis];
+	}
+}

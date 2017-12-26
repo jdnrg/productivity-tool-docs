@@ -1,0 +1,55 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="完全二叉树及其数组表示";
+	
+	ranksep=0;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	subgraph { node [shape=plaintext];
+		level0 [label="第0层"];
+		level1 [label="第1层"];
+		level2 [label="第2层"];
+		level3 [label="第3层"];
+		
+		{ edge [style=invis, minlen=4];
+			level0 -> level1 -> level2 -> level3;
+		}
+	
+		{ edge [arrowhead=none, minlen=4];
+			a -> b;
+			n0 [style=invis];
+			n1 [style=invis];
+			a -> n0 [style=invis];
+			a -> n1 [style=invis];
+			a -> c;
+			b -> d;
+			n2 [style=invis];
+			b -> n2 [style=invis];
+			b -> e;
+			c -> f;
+			n3 [style=invis];
+			c -> n3 [style=invis];
+			c -> g;
+			d -> h;
+			d -> i;
+			e -> j;
+			n4 [style=invis];
+			e -> n4 [style=invis];
+		}
+	}
+	
+	subgraph { node [shape=record, width=5];
+		arrayIndex [label="0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9", color=white];
+		array [label="a | b | c | d | e | f | g | h | i | j"];
+	}
+	
+	lastRow [style=invis];
+	edge [style=invis];
+	j -> arrayIndex;
+	arrayIndex -> array;
+	array -> lastRow;
+}

@@ -1,0 +1,174 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="在快速排序算法的每个递归阶段中产生的子数组";
+	
+	size="7.5,7.5";
+	ranksep=.1;
+	nodesep=.1;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext, label=""];
+		ra [label="阶段1"];
+		rc [label="阶段2"];
+		re [label="阶段3"];
+		rg [label="阶段4"];
+		ri [label="阶段5"];
+		edge [style=invis];
+		ra -> rb;
+		rb -> rc [minlen=4];
+		rc -> rd;
+		rd -> re [minlen=4];
+		re -> rf;
+		rf -> rg [minlen=4];
+		rg -> rh;
+		rh -> ri [minlen=4];
+	}
+	
+	{ node [shape=square];
+		{ rank=same;
+			a0 [label="12"]; 
+			a1 [label="19"]; 
+			a2 [label="17"]; 
+			a3 [label="18"]; 
+			a4 [label="14", style=filled]; 
+			a5 [label="11"]; 
+			a6 [label="15"]; 
+			a7 [label="13"]; 
+			a8 [label="16"];
+			a0 -> a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> a7 -> a8 [style=invis];
+		}
+		
+		{ rank=same;
+			b0 [label="12"]; 
+			b1 [label="11"]; 
+			b2 [label="13"]; 
+			b3 [label="14", style=filled]; 
+			b4 [label="16"]; 
+			b5 [label="19"]; 
+			b6 [label="15"]; 
+			b7 [label="17"]; 
+			b8 [label="18"];
+			b0 -> b1 -> b2 -> b3 -> b4 -> b5 -> b6 -> b7 -> b8 [style=invis];
+		}
+		
+		{ rank=same;
+			c0 [label="12"]; 
+			c1 [label="11", style=filled]; 
+			c2 [label="13"];
+			c3 [label="14", style=invis]; 
+			c4 [label="16"]; 
+			c5 [label="19"]; 
+			c6 [label="15", style=filled]; 
+			c7 [label="17"]; 
+			c8 [label="18"];
+			c0 -> c1 -> c2 -> c3 -> c4 -> c5 -> c6 -> c7 -> c8 [style=invis];
+		}
+		
+		{ rank=same;
+			d0 [label="11", style=filled]; 
+			d1 [label="13"]; 
+			d2 [label="12"]; 
+			d3 [label="14", style=invis]; 
+			d4 [label="15", style=filled]; 
+			d5 [label="19"]; 
+			d6 [label="18"]; 
+			d7 [label="17"]; 
+			d8 [label="16"];
+			d0 -> d1 -> d2 -> d3 -> d4 -> d5 -> d6 -> d7 -> d8 [style=invis];
+		}
+		
+		{ rank=same;
+			e0 [shape=circle, label=""]; 
+			e1 [label="13", style=filled]; 
+			e2 [label="12"]; 
+			e3 [label="14", style=invis]; 
+			e4 [shape=circle, label=""]; 
+			e5 [label="19"]; 
+			e6 [label="18", style=filled]; 
+			e7 [label="17"]; 
+			e8 [label="16"];
+			e0 -> e1 -> e2 -> e3 -> e4 -> e5 -> e6 -> e7 -> e8 [style=invis];
+		}
+		
+		{ rank=same;
+			f0 [label="11", style=invis];
+			f1 [label="12"]; 
+			f2 [label="13", style=filled];
+			f3 [label="14", style=invis]; 
+			f4 [label="15", style=invis]; 
+			f5 [label="16"]; 
+			f6 [label="17", style=filled]; 
+			f7 [label="18"]; 
+			f8 [label="19"];
+			f0 -> f1 -> f2 -> f3 -> f4 -> f5 -> f6 -> f7 -> f8 [style=invis];
+		}
+		
+		{ rank=same;
+			g0 [label="11", style=invis];
+			g1 [label="12"];
+			g2 [shape=circle, label=""];
+			g3 [label="14", style=invis]; 
+			g4 [label="15", style=invis]; 
+			g5 [label="16"];
+			g6 [label="17", style=invis]; 
+			g7 [label="18", style=filled]; 
+			g8 [label="19"];
+			g0 -> g1 -> g2 -> g3 -> g4 -> g5 -> g6 -> g7 -> g8 [style=invis];
+		}
+		
+		{ rank=same;
+			h0 [label="11", style=invis];
+			h1 [label="12", style=invis];
+			h2 [label="13", style=invis];
+			h3 [label="14", style=invis]; 
+			h4 [label="15", style=invis]; 
+			h5 [label="16", style=invis];
+			h6 [label="17", style=invis]; 
+			h7 [label="18", style=filled]; 
+			h8 [label="19"];
+			h0 -> h1 -> h2 -> h3 -> h4 -> h5 -> h6 -> h7 -> h8 [style=invis];
+		}
+		
+		{ rank=same;
+			i0 [label="11", style=invis];
+			i1 [label="12", style=invis];
+			i2 [label="13", style=invis];
+			i3 [label="14", style=invis]; 
+			i4 [label="15", style=invis]; 
+			i5 [label="16", style=invis];
+			i6 [label="17", style=invis]; 
+			i7 [shape=circle, label=""]; 
+			i8 [label="19"];
+			i0 -> i1 -> i2 -> i3 -> i4 -> i5 -> i6 -> i7 -> i8 [style=invis];
+		}
+	}
+	
+	{ edge [style=invis];
+		a0 -> b0;
+		b0 -> c0 [minlen=4];
+		c0 -> d0;
+		d0 -> e0 [minlen=4];
+		e0 -> f0;
+		f0 -> g0 [minlen=4];
+		g0 -> h0;
+		h0 -> i0 [minlen=4];
+	}
+	
+	edge [minlen=4];
+	b3 -> c1;
+	b3 -> c6;
+	d0 -> e0;
+	d0 -> e1;
+	d4 -> e4;
+	d4 -> e6;
+	f2 -> g1;
+	f2 -> g2;
+	f6 -> g5;
+	f6 -> g7;
+	h7 -> i7;
+	h7 -> i8;
+}

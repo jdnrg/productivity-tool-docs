@@ -1,0 +1,18 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="带有虚头节点的空循环链表";
+
+	rankdir=LR;
+	
+	head [shape=plaintext];
+	headRef [shape=square, label=""];
+	headNode [shape=record, label="{<data> | <ref>}"];
+
+	head -> headRef [style=invis];
+	edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+	headRef:c -> headNode:data;
+	headNode:ref:c -> headNode:data;
+}

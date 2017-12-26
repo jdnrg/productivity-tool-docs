@@ -1,0 +1,39 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="普通树及其链表表示";
+	
+	{ node [shape=plaintext];
+		edge [arrowhead=none];
+		
+		a -> b;
+		a -> c;
+		a -> d;
+		a -> e;
+		b -> f;
+		b -> g;
+		c -> h;
+	}
+	
+	{ node [shape=record, style=filled];
+		n1 [label="{a | {<f0> | <f1> | <f2> | <f3>}}", width=2];
+		n2 [label="{b | {<f0> | <f1>}}", width=1];
+		n3 [label="{c | <f0>}", width=.5];
+		n4 [label="{d | <f0> ●}", width=.5];
+		n5 [label="{e | <f0> ●}", width=.5];
+		n6 [label="{f | <f0> ●}", width=.5];
+		n7 [label="{g | <f0> ●}", width=.5];
+		n8 [label="{h | <f0> ●}", width=.5];
+		
+		edge [tailclip=false];
+		n1:f0:c -> n2;
+		n1:f1:c -> n3;
+		n1:f2:c -> n4;
+		n1:f3:c -> n5;
+		n2:f0:c -> n6;
+		n2:f1:c -> n7;
+		n3:f0:c -> n8;
+	}
+}

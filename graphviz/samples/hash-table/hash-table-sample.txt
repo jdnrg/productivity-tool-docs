@@ -1,0 +1,65 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="带有5个桶的散列表";
+	
+	// size="7.5,7.5";
+	rankdir=LR;
+	ranksep=0;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=plaintext];
+		indexWord [label="索引"];
+		index0Val [label="0"];
+		index1Val [label="1"];
+		index2Val [label="2"];
+		index3Val [label="3"];
+		index4Val [label="4"];
+	}
+	
+	{ node [shape="square", label=""];
+		index0;
+		index1;
+		index2;
+		index3;
+		index4;
+	}
+	
+	{ node [shape="record"];
+		d1 [label="{<data> D1 | <next>}"];
+		d2 [label="{<data> D2 | <next>}"];
+		d3 [label="{<data> D3 | <next>}"];
+		d4 [label="{<data> D4 | <next>}"];
+		d5 [label="{<data> D5 | <next>}"];
+		d6 [label="{<data> D6 | <next>}"];
+		d7 [label="{<data> D7 | <next>}"];
+		d8 [label="{<data> D8 | <next>}"];
+	}
+	
+	{ edge [color=white];
+		index0Val -> index0;
+		index1Val -> index1;
+		index2Val -> index2;
+		index3Val -> index3;
+		index4Val -> index4;
+	}
+	
+	{ edge [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, minlen=4];
+		index0 -> d5;
+		d5:next:c -> d2;
+		index1 -> d6;
+		d6:next:c -> d4;
+		index3 -> d8;
+		index4 -> d7;
+		d7:next:c -> d3;
+		d3:next:c -> d1;
+	}
+	
+	{ rank=same;
+		lastRow [shape=none, label=""];
+		indexWord -> index0Val -> index1Val -> index2Val -> index3Val -> index4Val -> lastRow [style=invis];
+	}
+}
