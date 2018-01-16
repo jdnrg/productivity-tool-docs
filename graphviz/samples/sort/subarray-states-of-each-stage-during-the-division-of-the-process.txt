@@ -1,0 +1,33 @@
+digraph {
+	graph [fontname="Microsoft Yahei"];
+	
+	// title
+	labelloc="b";
+	label="划分过程期间各个阶段的子数组状态";
+	
+	rankdir=LR;
+	
+	node [fontname="Microsoft Yahei"];
+	
+	{ node [shape=record, width=5];
+		initState [shape=record, label="{??? | p | ???}"];
+		startSacnning [shape=record, label="{unscanned | p}"];
+		scanningPeriod [shape=record, label="{\<pivot | ≥pivot | unscanned | p}"];
+		completeScanning [shape=record, label="{\<pivot | ≥pivot | p}"];
+		finalState [shape=record, label="{\<pivot | p | ≥pivot}"];
+	}
+	
+	{ node [shape=plaintext];
+		edge [style=invis];
+		初始状态 -> initState;
+		开始扫描 -> startSacnning;
+		扫描期间 -> scanningPeriod;
+		扫描完毕 -> completeScanning;
+		最后状态 -> finalState;
+	}
+		
+	{ rank=same;
+		edge [style=invis];
+		初始状态 -> 开始扫描 -> 扫描期间 -> 扫描完毕 -> 最后状态;
+	}
+}

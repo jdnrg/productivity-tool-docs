@@ -82,11 +82,11 @@ digraph {
 		}
 		
 		{ rank=same;
-			e0 [shape=circle, label=""]; 
+			e0 [label="11", style=invis]; 
 			e1 [label="13", style=filled]; 
 			e2 [label="12"]; 
 			e3 [label="14", style=invis]; 
-			e4 [shape=circle, label=""]; 
+			e4 [label="15", style=invis]; 
 			e5 [label="19"]; 
 			e6 [label="18", style=filled]; 
 			e7 [label="17"]; 
@@ -101,8 +101,8 @@ digraph {
 			f3 [label="14", style=invis]; 
 			f4 [label="15", style=invis]; 
 			f5 [label="16"]; 
-			f6 [label="17", style=filled]; 
-			f7 [label="18"]; 
+			f6 [label="17"]; 
+			f7 [label="18", style=filled]; 
 			f8 [label="19"];
 			f0 -> f1 -> f2 -> f3 -> f4 -> f5 -> f6 -> f7 -> f8 [style=invis];
 		}
@@ -110,12 +110,12 @@ digraph {
 		{ rank=same;
 			g0 [label="11", style=invis];
 			g1 [label="12"];
-			g2 [shape=circle, label=""];
+			g2 [label="13", style=invis];
 			g3 [label="14", style=invis]; 
 			g4 [label="15", style=invis]; 
-			g5 [label="16"];
-			g6 [label="17", style=invis]; 
-			g7 [label="18", style=filled]; 
+			g5 [label="16", style=filled];
+			g6 [label="17"]; 
+			g7 [label="18", style=invis]; 
 			g8 [label="19"];
 			g0 -> g1 -> g2 -> g3 -> g4 -> g5 -> g6 -> g7 -> g8 [style=invis];
 		}
@@ -126,10 +126,10 @@ digraph {
 			h2 [label="13", style=invis];
 			h3 [label="14", style=invis]; 
 			h4 [label="15", style=invis]; 
-			h5 [label="16", style=invis];
-			h6 [label="17", style=invis]; 
-			h7 [label="18", style=filled]; 
-			h8 [label="19"];
+			h5 [label="16", style=filled];
+			h6 [label="17"]; 
+			h7 [label="18", style=invis]; 
+			h8 [label="19", style=invis];
 			h0 -> h1 -> h2 -> h3 -> h4 -> h5 -> h6 -> h7 -> h8 [style=invis];
 		}
 		
@@ -140,9 +140,9 @@ digraph {
 			i3 [label="14", style=invis]; 
 			i4 [label="15", style=invis]; 
 			i5 [label="16", style=invis];
-			i6 [label="17", style=invis]; 
-			i7 [shape=circle, label=""]; 
-			i8 [label="19"];
+			i6 [label="17"]; 
+			i7 [label="18", style=invis]; 
+			i8 [label="19", style=invis];
 			i0 -> i1 -> i2 -> i3 -> i4 -> i5 -> i6 -> i7 -> i8 [style=invis];
 		}
 	}
@@ -161,14 +161,14 @@ digraph {
 	edge [minlen=4];
 	b3 -> c1;
 	b3 -> c6;
-	d0 -> e0;
+	d0 -> e0 [style=invis];
 	d0 -> e1;
-	d4 -> e4;
+	d4 -> e4 [style=invis];
 	d4 -> e6;
 	f2 -> g1;
-	f2 -> g2;
-	f6 -> g5;
-	f6 -> g7;
-	h7 -> i7;
-	h7 -> i8;
+	f2 -> g2 [style=invis];
+	f7 -> g6;
+	f7 -> g8;
+	h5 -> i5 [style=invis];
+	h5 -> i6;
 }
