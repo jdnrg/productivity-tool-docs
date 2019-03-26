@@ -1,4 +1,4 @@
-# PlantUML 速查表
+# PlantUML Quick lookup table
 
 ## Diagram
 
@@ -14,9 +14,9 @@
 
 ### State
 
-### 时序（Sequence）
+### Timing（Sequence）
 
-关键字 | 用法 | 图片
+KeyWord | Usage | Image
 ------ | ---- | ----
 `->` | | ![](images/cheatsheet/sequence/image-arrow-1.png)
 `<--` | | ![](images/cheatsheet/sequence/image-arrow-2.png)
@@ -47,19 +47,19 @@ deactivate Ticket
 
 ![](images/cheatsheet/sequence/sequence-diagram.png)
 
-### 类（Class）
+### class
 
-关键字 | 用法 | 图片
+Keyword | Usage | Pictures
 ------ | ---- | ----
-`class` | 类 | ![](images/cheatsheet/class-diagram/image-class.png)
+`class` | class | ![](images/cheatsheet/class-diagram/image-class.png)
 `+` | Public | ![](images/cheatsheet/class-diagram/image-public.png)
 `-` | Private | ![](images/cheatsheet/class-diagram/image-private.png)
 `#` | Protected | ![](images/cheatsheet/class-diagram/image-protected.png)
 `~` | Package | ![](images/cheatsheet/class-diagram/image-package.png)
-<code><&#124;--</code> | 继承（extension） | ![](images/cheatsheet/class-diagram/image-extension.png)
-<code><&#124;..</code> | 实现（implements） | 
-`o--` | 聚合（aggregation）| ![](images/cheatsheet/class-diagram/image-aggregation.png)
-`*--` | 组成（composition） | ![](images/cheatsheet/class-diagram/image-composition.png)
+<code><&#124;--</code> | extension | ![](images/cheatsheet/class-diagram/image-extension.png)
+<code><&#124;..</code> | implements | 
+`o--` | aggregation| ![](images/cheatsheet/class-diagram/image-aggregation.png)
+`*--` | composition | ![](images/cheatsheet/class-diagram/image-composition.png)
 
 ```
 @startuml
@@ -88,38 +88,37 @@ Group .. Member
 
 ### Component
 
-## 通用（Common）
+## Common
 
-###  标题（Title）、备注（Note）、注释（Comment）
-
-关键字 | 用法
+###  Title、Note、Comment
+Keyword | usage
 ------- | -----
-`title` | 设置一个标题。<br/>在标题描述中使用 `\n` 表示换行。<br/>可以使用一些 skinparam 设置来指定标题的边框。
-`title`、`end title` | 定义多行标题。<br/>你可以在标题中使用 creole 格式。
-`note top`、`note top of` | 添加一个位于上边的备注。
-`note bottom`、`note bottom of` | 添加一个位于下边的备注。
-`note left`、`note left of`| 添加一个位于左边的备注。
-`note right`、`note right of` | 添加一个位于右边的备注。
-`note` | 添加一个备注（不指定位置）。
-`'` | 所有以单引号 `'` 开头的行都是注释行。
-`/'`、`'/` | 多行注释以 `/'` 开头，以 `'/` 结尾。
+`title` | Set a title. Use `\n` to indicate a line break in the title description. You can use some skinparam settings to specify the border of the title.
+`title`, `end title` | Define multiple line headings. You can use the creole format in the title.
+`note top`, `note top of` | Add a comment above.
+`note bottom`, `note bottom of` | Add a comment below.
+`note left`, `note left of`| Add a comment on the left.
+`note right`, `note right of` | Add a comment on the right.
+`note` | Add a note (do not specify a location).
+`'` | All lines beginning with single quotes `'` are comment lines.
+`/'`,`'/` | Multi-line comments begin with `/'` and end with `'/`.
 
 ```
 @startuml
-' 可以使用一些 skinparam 设置来指定标题的边框。
+' You can use some skinparam settings to specify the border of the title.
 skinparam titleBorderRoundCorner 15
 skinparam titleBorderThickness 2
 skinparam titleBorderColor red
 
-' 设置一个标题。
-title 标题、备注和注释\n使用示例
+' Set a title.
+Title title, notes, and comments\nexamples
 
 Object <|--- ArrayList
 note top of Object : In java , every class\nextends this one.
 
 /'
-	单独用 note 关键字定义一个备注，
-	然后可以使用 .. 符号可以作出一条连接它与其它对象的虚线。
+	Define a note with the note keyword alone.
+You can then use the .. symbol to make a dashed line connecting it to other objects.
 '/
 note "This is a floating note" as N1
 note "This note is connected\nto several objects." as N2
